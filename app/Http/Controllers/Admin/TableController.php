@@ -13,8 +13,8 @@ class TableController extends Controller
      */
     public function index()
     {
-        $table = Table::all();
-        return view('admin.table.index', compact('table'));
+        $tables = Table::all();
+        return view('admin.table.index', compact('tables'));
     }
 
     /**
