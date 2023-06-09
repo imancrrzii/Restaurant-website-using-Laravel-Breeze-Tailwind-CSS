@@ -22,35 +22,50 @@
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
                             <input type="text" id="first_name" name="first_name"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Misal" required>
+                                placeholder="Misal">
+                                @error('first_name')
+                                <div class="text-sm text-red-400">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div>
                             <label for="last_name"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name</label>
                             <input type="text" id="last_name" name="last_name"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Misal" required>
+                                placeholder="Misal">
+                                @error('last_name')
+                                <div class="text-sm text-red-400">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div>
                             <label for="email"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                             <input type="email" id="email" name="email"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="email" required>
+                                placeholder="email">
+                                @error('email')
+                                <div class="text-sm text-red-400">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div>
                             <label for="no_telp"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone Number</label>
                             <input type="text" id="no_telp" name="no_telp"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="email" required>
+                                placeholder="email">
+                                @error('no_telp')
+                                <div class="text-sm text-red-400">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div>
                             <label for="reser_date"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Reservation Date</label>
                             <input type="datetime-local" id="reser_date" name="reser_date"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="email" required>
+                                placeholder="email">
+                                @error('reser_date')
+                                <div class="text-sm text-red-400">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div>
                             <label for="guest_number"
@@ -58,7 +73,10 @@
                                 Number</label>
                             <input type="number" id="guest_number" name="guest_number"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Misal" required>
+                                placeholder="Misal">
+                                @error('guest_number')
+                                <div class="text-sm text-red-400">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div>
                             <label for="table_id"
