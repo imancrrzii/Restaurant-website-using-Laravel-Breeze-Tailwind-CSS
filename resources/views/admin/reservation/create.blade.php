@@ -10,36 +10,72 @@
             <div class="flex m-2 p-2 ">
                 <a href="{{ route('admin.reservation.index') }}"
                     class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">
-                    Data Reservation
+                    Data Menu
                 </a>
             </div>
             <div class="m-2 p-2 bg-slate-100 rounded">
-                <form enctype="multipart/form-data">
+                <form method="post" action="{{ route('admin.reservation.store') }}">
+                    @csrf
                     <div class="grid gap-6 mb-6 md:grid-cols-1">
                         <div>
-                            <label for="name"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                            <input type="text" id="name" name="name"
+                            <label for="first_name"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
+                            <input type="text" id="first_name" name="first_name"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Misal" required>
                         </div>
                         <div>
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="image">Image</label>
-                            <input class="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="image" type="file" name="image">
+                            <label for="last_name"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name</label>
+                            <input type="text" id="last_name" name="last_name"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Misal" required>
                         </div>
                         <div>
-                            <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                            <textarea rows="3" id="description" name="description"
+                            <label for="email"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                            <input type="email" id="email" name="email"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"></textarea>
+                                placeholder="email" required>
+                        </div>
+                        <div>
+                            <label for="no_telp"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone Number</label>
+                            <input type="text" id="no_telp" name="no_telp"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="email" required>
+                        </div>
+                        <div>
+                            <label for="reser_date"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Reservation Date</label>
+                            <input type="datetime-local" id="reser_date" name="reser_date"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="email" required>
+                        </div>
+                        <div>
+                            <label for="guest_number"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Guest
+                                Number</label>
+                            <input type="number" id="guest_number" name="guest_number"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Misal" required>
+                        </div>
+                        <div>
+                            <label for="table_id"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Table</label>
+                            <div class="mt-1">
+                                <select id="table_id" name="table_id" class="form-multiselect block w-full mt-1 rounded-lg">
+                                    @foreach ($tables as $table)
+                                        <option value="{{ $table->id }}">{{ $table->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <button type="submit"
                         class="px-4 py-2 bg-indigo-500 hover:bg-indigo-800 text-white rounded-lg">Submit</button>
                 </form>
-
             </div>
-
         </div>
     </div>
 </x-admin-layout>
