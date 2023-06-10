@@ -37,7 +37,7 @@ class TableController extends Controller
             'status' => $request->status,
             'location' => $request->location,
         ]);
-        return to_route('admin.table.index');
+        return to_route('admin.table.index')->with('success', 'Category Created Successfully');
     }
 
     /**
@@ -63,7 +63,7 @@ class TableController extends Controller
     {
         $table->update($request->validated());
 
-        return to_route('admin.table.index');
+        return to_route('admin.table.index')->with('success', 'Category Updated Successfully');
     }
 
     /**
@@ -73,6 +73,6 @@ class TableController extends Controller
     {
         $table->delete();
 
-        return to_route('admin.table.index');
+        return to_route('admin.table.index')->with('danger', 'Category Deleted Successfully');
     }
 }

@@ -47,7 +47,7 @@ class MenuController extends Controller
             $menu->categories()->attach($request->categories);
         }
 
-        return to_route('admin.menu.index');
+        return to_route('admin.menu.index')->with('success', 'Category Created Successfully');
     }
 
     /**
@@ -95,7 +95,7 @@ class MenuController extends Controller
             $menu->categories()->sync($request->categories);
         }
 
-        return to_route('admin.menu.index');
+        return to_route('admin.menu.index')->with('success', 'Category Updated Successfully');
     }
 
     /**
@@ -106,6 +106,6 @@ class MenuController extends Controller
         Storage::delete($menu->image);
         $menu->categories()->detach();
         $menu->delete();
-        return to_route('admin.menu.index');
+        return to_route('admin.menu.index')->with('danger', 'Category Deleted Successfully');
     }
 }

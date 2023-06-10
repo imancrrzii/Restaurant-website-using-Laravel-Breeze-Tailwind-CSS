@@ -54,7 +54,7 @@
                                 </td>
                                 <td
                                 class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                {{ $reservation->table_id }}
+                                {{ $reservation->table->name }}
                             </td>
                                 <td
                                     class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">

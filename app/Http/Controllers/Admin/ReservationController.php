@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\TableStatus;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ReservationStoreRequest;
 use App\Models\Reservation;
@@ -24,7 +25,7 @@ class ReservationController extends Controller
      */
     public function create()
     {
-        $tables = Table::all();
+        $tables = Table::where('status', TableStatus::Available)->get();
         return view('admin.reservation.create', compact('tables'));
     }
 
@@ -33,9 +34,13 @@ class ReservationController extends Controller
      */
     public function store(ReservationStoreRequest $request)
     {
+        $table = Table::findOrFail($request->table_id);
+        if ($request->guest_number >  $table->guest_number) {
+            return back()->with('warning', 'Please Choose the table same number');
+        }
         Reservation::create($request->validated());
 
-        return to_route('admin.reservation.index');
+        return to_route('admin.reservation.index')->with('success', 'Category Created Successfully');
     }
 
     /**

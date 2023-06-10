@@ -40,7 +40,7 @@ class CategoryController extends Controller
             'image' => $image
         ]);
 
-        return to_route('admin.category.index');
+        return to_route('admin.category.index')->with('success', 'Category Created Successfully');
         
     }
 
@@ -82,7 +82,7 @@ class CategoryController extends Controller
             'image' => $image
         ]);
 
-        return to_route('admin.category.index');
+        return to_route('admin.category.index')->with('success', 'Category Updated Successfully');
     }
 
     /**
@@ -94,6 +94,6 @@ class CategoryController extends Controller
         $category->menus()->detach();
         $category->delete();
 
-        return to_route('admin.category.index');
+        return to_route('admin.category.index')->with('danger', 'Category Deleted Successfully');
     }
 }
