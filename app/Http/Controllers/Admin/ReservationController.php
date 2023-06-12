@@ -54,24 +54,33 @@ class ReservationController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Reservation $reservation)
     {
-        //
+        $tables = Table::where('status', TableStatus::Available)->get();
+        return view('admin.reservation.edit', compact('reservation', 'tables'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ReservationStoreRequest $request, Reservation $reservation)
     {
-        //
+        $table = Table::findOrFail($request->table_id);
+        if ($request->guest_number >  $table->guest_number) {
+            return back()->with('warning', 'Please Choose the table same number');
+        }
+        $reservation->update($request->validated());
+        return to_route('admin.reservation.index')->with('success', 'Reservation Updated Successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Reservation $reservation)
     {
-        //
+        $reservation->delete();
+
+        return to_route('admin.reservation.index')->with('danger', 'Reservation Deleted Successfully');
+
     }
 }

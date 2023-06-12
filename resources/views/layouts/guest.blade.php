@@ -18,9 +18,9 @@
         <div class="bg-white shadow-md" x-data="{ isOpen: false }">
             <nav class="container px-6 py-8 mx-auto md:flex md:justify-between md:items-center">
               <div class="flex items-center justify-between">
-                <a class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 md:text-2xl hover:text-green-400"
+                <a class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 md:text-2xl hover:text-blue-500"
                   href="#">
-                  TailFood
+                  ImanFood
                 </a>
                 <!-- Mobile menu button -->
                 <div @click="isOpen = !isOpen" class="flex md:hidden">
@@ -38,13 +38,13 @@
               <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
               <div :class="isOpen ? 'flex' : 'hidden'"
                 class="flex-col mt-8 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0">
-                <a class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400"
+                <a class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 hover:text-blue-400"
                   href="{{ route('dashboard-customer') }}">Home</a>
-                <a class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400"
+                <a class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 hover:text-blue-400"
                   href="{{ route('categories.index' )}}">Category</a>
-                <a class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400"
+                <a class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 hover:text-blue-400"
                   href="{{ route('menus.index') }}">Our Menu</a>
-                <a class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400"
+                <a class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 hover:text-blue-400"
                   href="{{ route('reservations.step.one') }}">Make Reservation</a>
               </div>
             </nav>
@@ -52,14 +52,14 @@
             <div class="font-sans text-gray-900 antialiased min-h-screen">
                 {{ $slot }}
             </div>
-            <footer class="bg-gray-800 border-t border-gray-200">
+            <footer class="bg-blue-950 border-t border-gray-200">
                 <div class="container flex flex-wrap items-center justify-center px-4 py-8 mx-auto lg:justify-between">
                   <div class="flex flex-wrap justify-center">
                     <ul class="flex items-center space-x-4 text-white">
                       <li>Home</li>
-                      <li>About</li>
-                      <li>Contact</li>
-                      <li>Terms</li>
+                      <li>Category</li>
+                      <li>Menu</li>
+                      <li>Reservation</li>
                     </ul>
                   </div>
                   <div class="flex justify-center mt-4 lg:mt-0">
